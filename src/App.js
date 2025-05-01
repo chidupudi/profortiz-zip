@@ -44,8 +44,9 @@ const ProfortizPlan = () => {
               { title: "Features", href: "#features" },
               { title: "Pricing", href: "#pricing" },
               { title: "Timeline", href: "#timeline" },
-              { title: "Success Stories", href: "#testimonials" },
+             
               { title: "Guarantee", href: "#guarantee" },
+              { title: "About Us", href: "#about" },
               { title: "Contact", href: "#contact" }  // Add this line
             ].map((link, index) => (
               <motion.a
@@ -178,13 +179,14 @@ const ProfortizPlan = () => {
             Transform into a Top-Tier Data Professional in 6 Months
           </motion.p>
           <motion.button
-            className="cta-button"
-            variants={fadeIn}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Start Free Trial
-          </motion.button>
+  className="cta-button"
+  variants={fadeIn}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  onClick={() => window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank')}
+>
+  Start Application
+</motion.button>
         </motion.div>
 
         <style jsx>{`
@@ -315,7 +317,167 @@ const ProfortizPlan = () => {
           }
         `}</style>
       </section>
+      <section className="about" id="about">
+        <h2 className="section-title">About Profortiz</h2>
+        <div className="about-content">
+          <motion.div 
+            className="about-text"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3>Our Mission</h3>
+            <p>
+              At Profortiz, we're revolutionizing tech education by bridging the gap between 
+              academic learning and industry requirements. Our mission is to empower aspiring 
+              professionals with the skills, confidence, and opportunities to thrive in the 
+              competitive world of data engineering and software development.
+            </p>
+            
+            <h3>Our Approach</h3>
+            <p>
+              We combine hands-on project experience with personalized mentorship to create 
+              industry-ready professionals. Unlike traditional bootcamps, we focus on real-world 
+              applications and provide guaranteed career outcomes through our innovative 
+              pay-after-placement model.
+            </p>
+          </motion.div>
+          
+          <motion.div 
+            className="about-values"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h3>Our Core Values</h3>
+            <ul>
+              <li>
+                <strong>Excellence:</strong> We maintain the highest standards in curriculum 
+                design and mentorship quality.
+              </li>
+              <li>
+                <strong>Transparency:</strong> Clear expectations, no hidden fees, and honest 
+                career guidance.
+              </li>
+              <li>
+                <strong>Student Success:</strong> Your achievement is our success metric - we're 
+                invested in your growth.
+              </li>
+              <li>
+                <strong>Innovation:</strong> Continuously evolving our programs to match 
+                industry trends and employer needs.
+              </li>
+              <li>
+                <strong>Community:</strong> Building a supportive network of learners, mentors, 
+                and industry professionals.
+              </li>
+            </ul>
+          </motion.div>
+        </div>
 
+        
+
+        <style jsx>{`
+          .about {
+            padding: 6rem 2rem;
+            background: #ffffff;
+          }
+          
+          .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+          }
+          
+          .about-text h3, .about-values h3 {
+            color: #6366f1;
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+          }
+          
+          .about-text p {
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+          }
+          
+          .about-values ul {
+            list-style: none;
+            padding: 0;
+          }
+          
+          .about-values li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            line-height: 1.6;
+          }
+          
+          .about-values li:last-child {
+            border-bottom: none;
+          }
+          
+          .team-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 3rem;
+          }
+          
+          .team-section h3 {
+            text-align: center;
+            color: #6366f1;
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+          }
+          
+          .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+          }
+          
+          .team-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+          }
+          
+          .member-photo {
+            width: 120px;
+            height: 120px;
+            background: #e5e7eb;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+          }
+          
+          .team-card h4 {
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+          }
+          
+          .role {
+            color: #6366f1;
+            font-weight: 500;
+            margin-bottom: 1rem;
+          }
+          
+          .bio {
+            color: #4b5563;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+          }
+          
+          .expertise {
+            color: #64748b;
+            font-size: 0.9rem;
+          }
+        `}</style>
+      </section>
       {/* Program Highlights */}
       <section className="highlights" id="features">
         <h2 className="section-title">Program Features</h2>
@@ -418,52 +580,188 @@ const ProfortizPlan = () => {
         `}</style>
       </section>
 
-      {/* Enhanced Pricing Section */}
-      <section className="pricing" id="pricing">
-        <div className="pricing-card">
-          <div className="pricing-header">
-            <h3>Career Accelerator Plan</h3>
-            <div className="price">$6000</div>
-            <p>Pay $3,500 Now | $2,500 After Placement | 8% in Total Annual CTC </p>
-          
-          </div>
-          
-          <div className="features">
-            <ul>
-              <li><FaStar /> Job Application Automation</li>
-              <li><FaStar /> Resume & LinkedIn Optimization</li>
-              <li><FaStar /> Mock Interviews & Negotiation Coaching</li>
-            </ul>
-          </div>
-          
-          <button className="cta-button">Enroll Now</button>
+     {/* Enhanced Pricing Section */}
+<section className="pricing" id="pricing">
+  <div className="pricing-card">
+    <div className="pricing-header">
+      <div className="badge">Most Popular</div>
+      <h3>Career Accelerator Plan</h3>
+      <div className="price">$6000</div>
+      <div className="payment-terms">
+        <div className="term">
+          <span className="amount">$3,500</span>
+          <span className="label">Initial Payment</span>
         </div>
+        <div className="term-divider">+</div>
+        <div className="term">
+          <span className="amount">$2,500</span>
+          <span className="label">After Placement</span>
+        </div>
+        <div className="term-divider">+</div>
+        <div className="term">
+          <span className="amount">8%</span>
+          <span className="label">Annual CTC</span>
+        </div>
+      </div>
+    </div>
+    
+    <div className="features">
+      <div className="feature-item">
+        <div className="feature-icon">🚀</div>
+        <div className="feature-text">Automated Job Applications</div>
+      </div>
+      <div className="feature-item">
+        <div className="feature-icon">📊</div>
+        <div className="feature-text">Resume & LinkedIn Optimization</div>
+      </div>
+      <div className="feature-item">
+        <div className="feature-icon">🎯</div>
+        <div className="feature-text">Interview & Negotiation Coaching</div>
+      </div>
+    </div>
+    
+    <button className="cta-button">
+      Start Your Journey
+      <span className="button-arrow">→</span>
+    </button>
+  </div>
 
-        <style jsx>{`
-          .pricing {
-            padding: 4rem 2rem;
-            background: linear-gradient(45deg, #1e293b, #0f172a);
-            color: white;
-            text-align: center;
-          }
+  <style jsx>{`
+    .pricing {
+      padding: 4rem 2rem;
+      background: linear-gradient(45deg, #1e293b, #0f172a);
+      color: white;
+      text-align: center;
+    }
 
-          .pricing-card {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.1);
-            padding: 3rem;
-            border-radius: 2rem;
-            backdrop-filter: blur(10px);
-          }
+    .pricing-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.1);
+      padding: 3rem;
+      border-radius: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
 
-          .price {
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 1rem 0;
-            color: #10b981;
-          }
-        `}</style>
-      </section>
+    .badge {
+      position: absolute;
+      top: 1rem;
+      right: -2rem;
+      background: #10b981;
+      color: white;
+      padding: 0.5rem 3rem;
+      transform: rotate(45deg);
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .price {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin: 1.5rem 0;
+      background: linear-gradient(135deg, #10b981, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .payment-terms {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+
+    .term {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .amount {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #10b981;
+    }
+
+    .label {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .term-divider {
+      color: #10b981;
+      font-size: 1.5rem;
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateX(10px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+    }
+
+    .feature-text {
+      font-size: 1rem;
+      text-align: left;
+    }
+
+    .cta-button {
+      width: 100%;
+      padding: 1.2rem;
+      background: linear-gradient(135deg, #10b981, #34d399);
+      border: none;
+      border-radius: 1rem;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+    }
+
+    .button-arrow {
+      transition: transform 0.3s ease;
+    }
+
+    .cta-button:hover .button-arrow {
+      transform: translateX(5px);
+    }
+  `}</style>
+</section>
 
       {/* Timeline Section */}
       <motion.section className="timeline" id="timeline">
@@ -522,71 +820,6 @@ const ProfortizPlan = () => {
           }
         `}</style>
       </motion.section>
-
-      {/* Testimonials Section */}
-      <motion.section className="testimonials" id="testimonials">
-        <h2 className="section-title">Student Success Stories</h2>
-        <div className="testimonials-grid">
-          {[
-            {
-              name: "Sarah Johnson",
-              role: "Data Scientist at Google",
-              content: "Profortiz transformed my career. The hands-on projects and mentorship were invaluable.",
-              image: "https://randomuser.me/api/portraits/women/1.jpg"
-            },
-            {
-              name: "Mike Chen",
-              role: "ML Engineer at Meta",
-              content: "The career support and network access helped me land my dream job.",
-              image: "https://randomuser.me/api/portraits/men/2.jpg"
-            }
-          ].map((testimonial, index) => (
-            <motion.div
-              className="testimonial-card"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              key={index}
-            >
-              <img src={testimonial.image} alt={testimonial.name} className="testimonial-image" />
-              <h3>{testimonial.name}</h3>
-              <h4>{testimonial.role}</h4>
-              <p>"{testimonial.content}"</p>
-            </motion.div>
-          ))}
-        </div>
-
-        <style jsx>{`
-          .testimonials {
-            padding: 6rem 2rem;
-            background: white;
-          }
-
-          .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-          }
-
-          .testimonial-card {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 1rem;
-            text-align: center;
-          }
-
-          .testimonial-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-          }
-        `}</style>
-      </motion.section>
-
       {/* Benefits Section */}
       <section className="benefits">
         <h2 className="section-title">Why Choose Profortiz?</h2>
@@ -882,6 +1115,7 @@ const ProfortizPlan = () => {
                   className="cta-button"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank')}
                 >
                   Start Application
                 </motion.button>
