@@ -176,7 +176,7 @@ const ProfortizPlan = () => {
             Accelerate Your Career in Data Engineering & Software Development
           </motion.h2>
           <motion.p className="description" variants={fadeIn}>
-            Transform into a Top-Tier Data Professional in 6 Months
+            Transform into a Top -Tier Data/ Software Professional 
           </motion.p>
           <motion.button
   className="cta-button"
@@ -269,7 +269,7 @@ const ProfortizPlan = () => {
         <div className="stats-grid">
           <div className="stat-item">
             <FaStar className="stat-icon" />
-            <h3>94% Success Rate</h3>
+            <h3>84% Success Rate</h3>
             <p>Career Placement Within 6 Months</p>
           </div>
           <div className="stat-item">
@@ -620,7 +620,8 @@ const ProfortizPlan = () => {
       </div>
     </div>
     
-    <button className="cta-button">
+    <button className="cta-button" onClick={() => window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank')}>
+   
       Start Your Journey
       <span className="button-arrow">→</span>
     </button>
@@ -647,18 +648,20 @@ const ProfortizPlan = () => {
     }
 
     .badge {
-      position: absolute;
-      top: 1rem;
-      right: -2rem;
-      background: #10b981;
-      color: white;
-      padding: 0.5rem 3rem;
-      transform: rotate(45deg);
-      font-size: 0.8rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+  position: absolute;
+  top: 50px;
+  right: -70px;
+  background: #10b981;
+  color: white;
+  padding: 0.5rem 3rem;
+  transform: rotate(45deg);
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 200px;
+  text-align: center;
+}
 
     .price {
       font-size: 3.5rem;
