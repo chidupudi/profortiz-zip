@@ -32,21 +32,23 @@ const ProfortizPlan = () => {
     <div className="main-container">
       <header className={`nav-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-content">
-          <motion.div 
-            className="logo"
-            whileHover={{ scale: 1.05 }}
-          >
-           <img src={Logo} alt="Logo" style={{ width: '50px', height: '50px' }} />
-            Profortiz
-          </motion.div>
+        <motion.div 
+  className="logo"
+  whileHover={{ scale: 1.05 }}
+  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+  style={{ cursor: 'pointer' }} // Add pointer cursor to indicate it's clickable
+>
+  <img src={Logo} alt="Logo" style={{ width: '50px', height: '50px' }} />
+  Profortiz
+</motion.div>
           <nav className="nav-links">
             {[
               { title: "Features", href: "#features" },
               { title: "Pricing", href: "#pricing" },
               { title: "Timeline", href: "#timeline" },
-             
               { title: "Guarantee", href: "#guarantee" },
               { title: "About Us", href: "#about" },
+              { title: "Terms", href: "#terms" },
               { title: "Contact", href: "#contact" }  // Add this line
             ].map((link, index) => (
               <motion.a
@@ -192,7 +194,7 @@ const ProfortizPlan = () => {
         <style jsx>{`
           .hero {
             position: relative;
-            min-height: 100vh;
+            min-height: 50vh;
             padding-top: 80px; /* Add this line */
             background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
             display: flex;
@@ -481,9 +483,7 @@ const ProfortizPlan = () => {
       {/* Program Highlights */}
       <section className="highlights" id="features">
         <h2 className="section-title">Program Features</h2>
-        <p className="section-description">
-          Comprehensive training designed to transform beginners into industry-ready professionals
-        </p>
+
         <div className="highlight-cards">
           {[
             {
@@ -532,10 +532,14 @@ const ProfortizPlan = () => {
             text-align: center;
             max-width: 800px;
             margin: 0 auto 3rem;
-            color: #4b5563;
-            font-size: 1.2rem;
+            color: #6366f1;
+           
+            
             line-height: 1.6;
           }
+            .section-title {
+            margin-left: 6rem;
+        }
 
           .highlight-cards {
             display: grid;
@@ -543,6 +547,7 @@ const ProfortizPlan = () => {
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            margin-bottom: 4rem;
           }
 
           .card {
@@ -577,6 +582,7 @@ const ProfortizPlan = () => {
             color: #10b981;
             font-weight: bold;
           }
+
         `}</style>
       </section>
 
@@ -828,11 +834,7 @@ const ProfortizPlan = () => {
         <h2 className="section-title">Why Choose Profortiz?</h2>
         <div className="benefits-grid">
           {[
-            {
-              title: "Learn by Doing",
-              content: "Work on real-world projects from leading companies",
-              icon: "🚀"
-            },
+            
             {
               title: "Expert Mentorship",
               content: "Get guidance from industry veterans with 10+ years of experience",
@@ -853,11 +855,7 @@ const ProfortizPlan = () => {
               content: "Connect with professionals from top tech companies",
               icon: "🤝"
             },
-            {
-              title: "Lifetime Access",
-              content: "Get unlimited access to our community",
-              icon: "🔄"
-            }
+           
           ].map((benefit, index) => (
             <motion.div
               className="benefit-card"
@@ -1099,8 +1097,354 @@ const ProfortizPlan = () => {
             }
           }
         `}</style>
-      </section>
+      </section>{/* Terms and Conditions Section */}
+<section className="terms" id="terms">
+  <div className="terms-container">
+    <h2 className="section-title">Terms and Conditions</h2>
+    
+    <div className="terms-content">
+      <div className="terms-section">
+        <h3>1. Program Overview</h3>
+        <p>
+          The Profortiz Career Accelerator Program is an intensive training and career development 
+          program designed to prepare participants for careers in data engineering and software 
+          development. The program includes training, mentorship, and career placement services.
+        </p>
+      </div>
 
+      <div className="terms-section">
+        <h3>2. Eligibility Requirements</h3>
+        <p>
+          To be eligible for the program, participants must:
+        </p>
+        <ul>
+          <li>Be at least 18 years of age</li>
+          <li>Have a basic understanding of programming concepts</li>
+          <li>Commit to the full duration of the program (6 months)</li>
+          <li>Complete all required coursework and projects</li>
+          <li>Actively participate in job search activities</li>
+        </ul>
+      </div>
+
+      <div className="terms-section">
+        <h3>3. Payment Terms</h3>
+        <p>
+          The total program fee is $6,000, payable as follows:
+        </p>
+        <ul>
+          <li><strong>Initial Payment:</strong> $3,500 due upon enrollment</li>
+          <li><strong>Deferred Payment:</strong> $2,500 due after placement</li>
+          <li><strong>Success Fee:</strong> 8% of first year's annual CTC (only if placed through our program)</li>
+        </ul>
+        <p>
+          Payment plans are available for the initial payment upon request and approval.
+        </p>
+      </div>
+
+      <div className="terms-section">
+        <h3>4. Money Back Guarantee</h3>
+        <p>
+          Our Money Back Guarantee is subject to the following conditions:
+        </p>
+        <ul>
+          <li>Complete all program requirements including coursework and projects</li>
+          <li>Attend all scheduled interviews unless formally excused</li>
+          <li>Do not reject any reasonable job offers (at or above average entry-level salary)</li>
+          <li>Valid for 3 months after program completion</li>
+        </ul>
+        
+        <p><strong>Refund structure based on placement outcomes:</strong></p>
+        <div className="refund-table">
+          <div className="refund-row header">
+            <div className="refund-cell">Condition</div>
+            <div className="refund-cell">Refund Amount</div>
+          </div>
+          <div className="refund-row">
+            <div className="refund-cell">Get a job through our program</div>
+            <div className="refund-cell">No refund (full payment due)</div>
+          </div>
+          <div className="refund-row">
+            <div className="refund-cell">5+ interviews but no job offer</div>
+            <div className="refund-cell">50% refund of initial payment</div>
+          </div>
+          <div className="refund-row">
+            <div className="refund-cell">4 interviews but no job offer</div>
+            <div className="refund-cell">55% refund of initial payment</div>
+          </div>
+          <div className="refund-row">
+            <div className="refund-cell">3 interviews but no job offer</div>
+            <div className="refund-cell">60% refund of initial payment</div>
+          </div>
+          <div className="refund-row">
+            <div className="refund-cell">0 interviews secured</div>
+            <div className="refund-cell">70% refund of initial payment</div>
+          </div>
+        </div>
+
+        <p className="disclaimer">
+          <strong>Note:</strong> Refunds apply only to the initial payment ($3,500). The deferred payment ($2,500 + 8% of CTC) 
+          is only due if you secure employment through our program. All refund requests require 
+          documentation of job search activities.
+        </p>
+      </div>
+
+
+      <div className="terms-section">
+        <h3>5. Placement Terms</h3>
+        <p>
+         <strong> To qualify as "placed" through our program:</strong>
+        </p>
+        <ul>
+          <li>Position must be in a relevant field (data engineering, software development, or related)</li>
+          <li>Position must be full-time (minimum 30 hours/week)</li>
+          <li>Position must be maintained for at least 90 days</li>
+          <li>Salary must meet or exceed the average entry-level salary for the position in the offered location</li>
+        </ul>
+      </div>
+
+      <div className="terms-section">
+        <h3>6. Student Responsibilities</h3>
+        <p>
+          <strong>Participants agree to:</strong>
+        </p>
+        <ul>
+          <li>Complete all assigned coursework and projects on time</li>
+          <li>Attend all scheduled mentorship sessions</li>
+          <li>Actively participate in the job search process</li>
+          <li>Provide accurate information about employment status</li>
+          <li>Notify Profortiz immediately upon accepting any job offer</li>
+        </ul>
+      </div>
+
+      <div className="terms-section">
+        <h3>7. Intellectual Property</h3>
+        <p>
+          All course materials, including but not limited to videos, documents, and code samples, 
+          are the intellectual property of Profortiz and may not be distributed without express 
+          written permission.
+        </p>
+      </div>
+
+      <div className="terms-section">
+        <h3>8. Limitation of Liability</h3>
+        <p>
+          Profortiz is not responsible for any employment decisions made by hiring companies. 
+          While we provide training and placement assistance, we cannot guarantee specific 
+          salary amounts or employment terms with any particular company.
+        </p>
+      </div>
+
+      <div className="terms-section">
+        <h3>9. Program Changes</h3>
+        <p>
+          Profortiz reserves the right to modify program content, schedule, or pricing with 
+          notice to current participants. Significant changes to the program structure will 
+          not affect students already enrolled.
+        </p>
+      </div>
+
+      <div className="terms-section">
+        <h3>10. Governing Law</h3>
+        <p>
+          These terms shall be governed by and construed in accordance with the law. Any disputes shall be resolved in the courts of law.
+        </p>
+      </div>
+    </div>
+
+    <div className="acknowledgement">
+      <p>
+        By enrolling in the Profortiz Career Accelerator Program, you acknowledge that you 
+        have read, understood, and agree to these Terms and Conditions.
+      </p>
+    </div>
+  </div>
+  <style jsx>{`
+  .terms {
+    padding: 6rem 2rem;
+    background: #f8fafc;
+  }
+
+  .terms-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+
+  .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #6366f1;
+    border-radius: 2px;
+  }
+
+  .terms-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .terms-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .terms-section:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .terms-section h3 {
+    color: #6366f1;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .terms-section h3::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #6366f1;
+    border-radius: 50%;
+  }
+
+  .terms-section p {
+    color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .terms-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .terms-section li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.8rem;
+    position: relative;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+
+  .terms-section li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #6366f1;
+  }
+
+  .terms-section strong {
+    color: #1e293b;
+    font-weight: 600;
+  }
+
+  .refund-table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .refund-row {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .refund-row.header {
+    background-color: #f1f5f9;
+    font-weight: 600;
+  }
+
+  .refund-row:last-child {
+    border-bottom: none;
+  }
+
+  .refund-cell {
+    flex: 1;
+    padding: 1rem;
+    color: #4b5563;
+  }
+
+  .refund-row.header .refund-cell {
+    color: #1e293b;
+  }
+
+  .refund-row:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  .disclaimer {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    border-left: 4px solid #6366f1;
+  }
+
+  .acknowledgement {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    font-weight: 500;
+    color: #4b5563;
+  }
+
+  @media (max-width: 768px) {
+    .terms {
+      padding: 4rem 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .terms-section {
+      padding: 1.5rem;
+    }
+
+    .refund-row {
+      flex-direction: column;
+    }
+
+    .refund-row.header {
+      display: none;
+    }
+
+    .refund-cell {
+      padding: 0.8rem 1rem;
+    }
+
+    .refund-cell:first-child {
+      font-weight: 600;
+      background-color: #f8fafc;
+    }
+  }
+`}</style>
+</section>
       {/* Contact Section */}
       <section className="contact" id="contact">
         <div className="contact-container">
