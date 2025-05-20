@@ -352,6 +352,7 @@ const Welcome = () => {
         }
         
         .section-header {
+    
           text-align: center;
           margin-bottom: 3rem;
         }
@@ -382,8 +383,9 @@ const Welcome = () => {
           align-items: center;
           justify-content: center;
           text-align: center;
-          padding: 8rem 2rem;
+          padding:8rem 2rem;
           position: relative;
+         
         }
         
         .hero-content {

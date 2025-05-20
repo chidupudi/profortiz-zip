@@ -64,15 +64,12 @@ const Footer = () => {
                   +91 90002 92266
                 </a>
               </p>
-              <p>
-                <FaPhone className="footer-icon" />
-                <a href="tel:+919000292266">+91 90002 92266</a>
-              </p>
+              
             </div>
           </div>
           
           <div className="footer-bottom">
-            <p>© {new Date().getFullYear()} Profortiz. All rights reserved.</p>
+           <p>© 2024-{new Date().getFullYear()} Profortiz. All rights reserved.</p>
             <div className="policy-links">
               <Link to="/terms">Terms & Conditions</Link>
               <span className="divider">|</span>

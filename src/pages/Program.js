@@ -1,6 +1,6 @@
 // src/pages/Program.js
 import React, { useState } from 'react';
-import { FaLaptopCode, FaGraduationCap, FaUsers, FaMoneyBillAlt, FaChartLine, FaCheck, FaAngleDown, FaAngleUp, FaStar, FaArrowRight } from 'react-icons/fa';
+import { FaLaptopCode, FaGraduationCap, FaUsers, FaMoneyBillAlt, FaChartLine, FaCheck, FaAngleDown, FaAngleUp, FaStar, FaArrowRight,} from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -16,47 +16,60 @@ const Program = () => {
     }
   };
 
-  // Timeline data
-  const timelineData = [
+const timelineData = [
     { 
-      month: "Month 1-2", 
-      title: "Profile Building", 
+      month: "Month 1",
+      title: "Foundation Building", 
       icon: <FaLaptopCode />, 
-      content: "Profile Building that includes resume, LinkedIn, Mock Interviews",
+      content: "Career Preparation and Core Fundamentals",
       details: [
-        "Create a professional resume that highlights your skills and achievements",
-        "Optimize your LinkedIn profile for better visibility to recruiters",
-        "Practice technical and behavioral interview skills through mock interviews",
-        "Develop your personal brand and online presence",
-        "Begin foundational coursework in SQL, Python, and data structures"
+        "Develop professional materials including resume and portfolio",
+        "Establish industry presence through optimized professional profiles",
+        "Begin communication and interview skills development",
+        "Learn essential tools and environments for your field",
+        "Master fundamental concepts required for specialization"
       ]
     },
     { 
-      month: "Month 3-4", 
-      title: "Advanced Skills", 
+      month: "Month 2-3", 
+      title: "Specialized Skills", 
       icon: <FaGraduationCap />, 
-      content: "Deep Learning, ML Ops, and Cloud Technologies, Master Python, SQL, and Data Structures",
+      content: "Advanced Technical Training and Project Implementation",
       details: [
-        "Dive deep into machine learning concepts and applications",
-        "Learn MLOps practices for deploying models to production",
-        "Master cloud technologies (AWS, Azure, GCP)",
-        "Advanced Python programming techniques",
-        "Database optimization and management",
-        "Begin working on real-world industry projects"
+        "Develop expertise in specialized technologies and frameworks",
+        "Learn industry best practices for production environments",
+        "Master relevant cloud and deployment technologies",
+        "Advanced programming and architecture techniques",
+        "Begin applying skills to practical projects with guidance",
+        "Build intermediate portfolio projects for demonstration"
       ]
     },
     { 
-      month: "Month 5-6", 
-      title: "Career Launch", 
-      icon: <FaUsers />, 
-      content: "Industry Projects and Interview Preparation",
+      month: "Month 2-5",
+      title: "Job Application Strategies", 
+      
+      content: "Career Marketing and Application Preparation",
       details: [
-        "Complete capstone projects that showcase your skills",
-        "Intensive interview preparation for technical and behavioral questions",
-        "Job application strategy and networking",
-        "Salary negotiation training",
-        "Post-placement support and mentorship",
-        "Transition planning to your new career"
+        "Develop targeted job search strategy and application materials",
+        "Learn techniques for finding hidden job opportunities",
+        "Optimize resume and LinkedIn for ATS systems",
+        "Create tailored cover letters and application templates",
+        "Begin networking with industry professionals",
+        "Set up job alerts and organize application tracking system"
+      ]
+    },
+    { 
+      month: "Month 3-6", 
+      title: "Professional Launch", 
+      icon: <FaUsers />, 
+      content: "Portfolio Completion and Career Transition",
+      details: [
+        "Complete comprehensive capstone projects demonstrating technical mastery",
+        "Prepare for technical assessments and interviews",
+        "Develop salary negotiation and workplace communication skills",
+        "Receive mentorship for career transition",
+        "Create plan for continuous learning and professional growth",
+        "Finalize transition plan to new career path"
       ]
     }
   ];
@@ -142,10 +155,10 @@ const Program = () => {
 
   // FAQ data
   const faqData = [
-    {
-      question: "What are the eligibility requirements for the program?",
-      answer: "To be eligible, you must be at least 18 years old, have a basic understanding of programming concepts, and commit to the full 6-month duration of the program including all coursework and job search activities."
-    },
+   {
+  question: "What are the eligibility requirements for the program?",
+  answer: "To be eligible, you must be at least 21 years old, have a basic understanding of programming concepts, and commit to the full 6-month duration of the program including all coursework and job search activities. We primarily serve students currently studying in the USA, recent graduates, and professionals looking to enhance their careers. Our program includes specialized guidance for international students navigating H-1B visa requirements and OPT/CPT opportunities. We provide tailored support for the unique challenges faced by international candidates in the US job market."
+},
     {
       question: "How does the payment structure work?",
       answer: "The total program fee is $6,000, with $3,500 due upon enrollment, $2,500 due after job placement, and an additional 8% of your first year's annual compensation (only applicable if placed through our program)."
@@ -160,7 +173,7 @@ const Program = () => {
     },
     {
       question: "How much time commitment is required?",
-      answer: "The program requires approximately 20-25 hours per week. This includes structured learning sessions, mentorship meetings, project work, and self-paced study. The time commitment may increase during the final months as you work on capstone projects."
+      answer: "The program requires approximately 20-25 hours per week. This includes structured learning sessions, mentorship meetings and self-paced study. The time commitment may increase during the final months as you work on capstone projects."
     }
   ];
 

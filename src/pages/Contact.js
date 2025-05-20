@@ -77,14 +77,7 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              
-              <div className="info-item">
-                <FaPhone className="info-icon" />
-                <div className="info-content">
-                  <h3>Call Us</h3>
-                  <p><a href="tel:+919000292266">+91 90002 92266</a></p>
-                </div>
-              </div>
+             
               
               <div className="info-item">
                 <FaMapMarkerAlt className="info-icon" />
@@ -95,12 +88,12 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="business-hours">
-              <h3>Business Hours</h3>
-              <p>Monday - Friday: 9:00 AM - 6:00 PM IST</p>
-              <p>Saturday: 9:00 AM - 1:00 PM IST</p>
-              <p>Sunday: Closed</p>
-            </div>
+       <div className="business-hours">
+  <h3>Business Hours</h3>
+  <p>Monday - Friday: 9:00 AM - 5:00 PM EST/EDT</p>
+  <p>Saturday: 10:00 AM - 2:00 PM EST/EDT</p>
+  <p>Sunday: Closed</p>
+</div>
           </motion.div>
           
           <motion.div 
