@@ -1,14 +1,14 @@
 // src/pages/Welcome.js
-import React, { useEffect } from 'react';
+import React, { useEffect , useState} from 'react';
 import { FaRocket, FaChartLine, FaHandshake, FaMoneyBillAlt, FaStar, FaRegClock, FaArrowRight } from 'react-icons/fa';
 import { motion, useAnimation } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Particles } from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-
+import ConfirmationDialog from '../components/ConfirmationDialog'; 
 const Welcome = () => {
   const controls = useAnimation();
-
+const [showConfirmation, setShowConfirmation] = useState(false); 
   useEffect(() => {
     controls.start({
       y: 0,
@@ -20,6 +20,16 @@ const Welcome = () => {
   const particlesInit = async (main) => {
     await loadSlim(main);
   };
+
+// Add these handler functions
+const handleApplyClick = () => {
+  setShowConfirmation(true);
+};
+
+const handleConfirmation = () => {
+  setShowConfirmation(false);
+  window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank');
+};
 
   return (
     <div className="welcome-page">
@@ -128,7 +138,7 @@ const Welcome = () => {
               className="primary-button"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank')}
+             onClick={handleApplyClick}
             >
               Start Application
             </motion.button>
@@ -312,7 +322,7 @@ const Welcome = () => {
                 className="primary-button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank')}
+               onClick={handleApplyClick}
               >
                 Apply Now
               </motion.button>
@@ -330,7 +340,12 @@ const Welcome = () => {
           </motion.div>
         </div>
       </section>
-
+   {/* Confirmation Dialog */}
+   <ConfirmationDialog 
+     isOpen={showConfirmation}
+     onClose={() => setShowConfirmation(false)}
+     onConfirm={handleConfirmation}
+   />
       <style jsx>{`
         .welcome-page {
           overflow-x: hidden;
@@ -383,7 +398,7 @@ const Welcome = () => {
           align-items: center;
           justify-content: center;
           text-align: center;
-          padding:8rem 2rem;
+          padding:8rem 2rem 4rem 2rem;
           position: relative;
          
         }
@@ -485,7 +500,7 @@ const Welcome = () => {
         
         /* Stats Section Styles */
         .stats-section {
-          padding: 6rem 2rem;
+          padding:3rem 2rem 6rem 2rem; 
           background: #ffffff;
         }
         

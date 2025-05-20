@@ -1,36 +1,98 @@
 // src/pages/Contact.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+
+import { motion, AnimatePresence } from 'framer-motion';
+import { db } from '../components/Firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import ConfirmationDialog from '../components/ConfirmationDialog';
 
 const Contact = () => {
-  const [formData, setFormData] = React.useState({
+  // Form state
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: '',
     interest: 'career-accelerator'
   });
+  
+  // Submission state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  // Snackbar state
+const [showSnackbar, setShowSnackbar] = useState(false);
+const [snackbarMessage, setSnackbarMessage] = useState('');
+  // Confirmation dialog state
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
+  // Reset success message after 5 seconds
+  useEffect(() => {
+    let timer;
+    if (submitSuccess) {
+      timer = setTimeout(() => {
+        setSubmitSuccess(false);
+      }, 5000);
+    }
+    return () => clearTimeout(timer);
+  }, [submitSuccess]);
+
+  // Form change handler
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  // Form submit handler - integrated with Firebase
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real application, you would send the form data to your backend
-    console.log('Form submitted:', formData);
-    // For now, just show an alert
-    alert('Thanks for contacting us! We will get back to you soon.');
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-      interest: 'career-accelerator'
-    });
+    setIsSubmitting(true);
+    setSubmitError(null);
+    
+    try {
+      // Add timestamp to form data
+      const formDataWithTimestamp = {
+        ...formData,
+        createdAt: serverTimestamp()
+      };
+      
+      // Save to Firestore
+      const docRef = await addDoc(collection(db, "contactRequests"), formDataWithTimestamp);
+      console.log("Document written with ID: ", docRef.id);
+      
+     setSnackbarMessage('Thanks for contacting us! We will get back to you soon.');
+setShowSnackbar(true);
+setTimeout(() => {
+  setShowSnackbar(false);
+}, 5000);
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+        interest: 'career-accelerator'
+      });
+      
+      
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      setSubmitError("There was an error submitting your form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
+  // Confirmation dialog handlers
+  const handleApplyClick = () => {
+    setShowConfirmation(true);
+  };
+
+  const handleConfirmation = () => {
+    setShowConfirmation(false);
+    window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank');
   };
 
   return (
@@ -77,7 +139,6 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-             
               
               <div className="info-item">
                 <FaMapMarkerAlt className="info-icon" />
@@ -88,12 +149,12 @@ const Contact = () => {
               </div>
             </div>
             
-       <div className="business-hours">
-  <h3>Business Hours</h3>
-  <p>Monday - Friday: 9:00 AM - 5:00 PM EST/EDT</p>
-  <p>Saturday: 10:00 AM - 2:00 PM EST/EDT</p>
-  <p>Sunday: Closed</p>
-</div>
+            <div className="business-hours">
+              <h3>Business Hours</h3>
+              <p>Monday - Friday: 9:00 AM - 5:00 PM EST/EDT</p>
+              <p>Saturday: 10:00 AM - 2:00 PM EST/EDT</p>
+              <p>Sunday: Closed</p>
+            </div>
           </motion.div>
           
           <motion.div 
@@ -103,6 +164,13 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h2>Send us a Message</h2>
+            
+            {submitSuccess && (
+              <div className="success-message">
+                Your message has been sent successfully! We'll get back to you soon.
+              </div>
+            )}
+            
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
@@ -170,9 +238,19 @@ const Contact = () => {
                 ></textarea>
               </div>
               
-              <button type="submit" className="submit-button">
-                Send Message
+              <button 
+                type="submit" 
+                className="submit-button" 
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
+              
+              {submitError && (
+                <div className="error-message">
+                  {submitError}
+                </div>
+              )}
             </form>
           </motion.div>
         </div>
@@ -189,14 +267,74 @@ const Contact = () => {
           <p>Apply now and take the first step towards a successful career in tech.</p>
           <button 
             className="cta-button"
-            onClick={() => window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank')}
+            onClick={handleApplyClick}
           >
             Start Application
           </button>
         </motion.div>
       </div>
+      
+      {/* Confirmation Dialog */}
+      <ConfirmationDialog 
+        isOpen={showConfirmation}
+        onClose={() => setShowConfirmation(false)}
+        onConfirm={handleConfirmation}
+      />
+      {/* Success Snackbar */}
+<AnimatePresence>
+  {showSnackbar && (
+    <motion.div 
+      className="snackbar"
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: 100, opacity: 0 }}
+      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+    >
+      <div className="snackbar-content">
+        <div className="snackbar-icon">✅</div>
+        <div className="snackbar-message">{snackbarMessage}</div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
 
       <style jsx>{`
+      .snackbar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  min-width: 300px;
+  max-width: 80%;
+  background: #10b981;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.snackbar-content {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+}
+
+.snackbar-icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.snackbar-message {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .snackbar {
+    min-width: 250px;
+    bottom: 15px;
+  }
+}
         .contact-page {
           padding: 8rem 2rem 6rem;
         }

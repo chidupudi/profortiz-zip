@@ -23,12 +23,14 @@ const Terms = () => {
       title: "2. Eligibility Requirements",
       content: "To be eligible for the program, participants must:",
       list: [
-        "Be at least 18 years of age",
-        "Have a basic understanding of programming concepts",
-        "Commit to the full duration of the program (6 months)",
-        "Complete all required coursework and projects",
-        "Actively participate in job search activities"
-      ]
+    "Be at least 21 years old",
+    "Have a basic understanding of programming concepts",
+    "Commit to the full duration of the program (6 months)",
+    "Complete all required coursework and projects",
+    "Actively participate in job search activities",
+    "Currently studying in the USA, recent graduate, or professional looking to enhance career",
+    "For international students: Navigate H-1B visa requirements and OPT/CPT opportunities"
+]
     },
     {
       title: "3. Payment Terms",

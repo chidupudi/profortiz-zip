@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { FaLaptopCode, FaGraduationCap, FaUsers, FaMoneyBillAlt, FaChartLine, FaCheck, FaAngleDown, FaAngleUp, FaStar, FaArrowRight,} from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
+import ConfirmationDialog from '../components/ConfirmationDialog'; 
 const Program = () => {
   const [activeTab, setActiveTab] = useState('timeline');
   const [expandedFaq, setExpandedFaq] = useState(null);
-
+const [showConfirmation, setShowConfirmation] = useState(false);
   const toggleFaq = (index) => {
     if (expandedFaq === index) {
       setExpandedFaq(null);
@@ -15,6 +15,15 @@ const Program = () => {
       setExpandedFaq(index);
     }
   };
+  // Add these handler functions
+const handleApplyClick = () => {
+  setShowConfirmation(true);
+};
+
+const handleConfirmation = () => {
+  setShowConfirmation(false);
+  window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank');
+};
 
 const timelineData = [
     { 
@@ -389,7 +398,7 @@ const timelineData = [
                       className="apply-button"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank')}
+                      onClick={handleApplyClick}
                     >
                       Start Application
                     </motion.button>
@@ -529,7 +538,7 @@ const timelineData = [
               className="cta-button"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank')}
+              onClick={handleApplyClick}
             >
               Apply Now <FaArrowRight className="btn-icon" />
             </motion.button>
@@ -540,6 +549,12 @@ const timelineData = [
           </motion.div>
         </div>
       </section>
+         <ConfirmationDialog 
+     isOpen={showConfirmation}
+     onClose={() => setShowConfirmation(false)}
+     onConfirm={handleConfirmation}
+   />
+
 
       <style jsx>{`
         .program-page {

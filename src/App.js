@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 // Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
+import ScrollToTop from './components/ScrollToTop';
 // Pages (Updated)
 import Welcome from './pages/Welcome';
 import Program from './pages/Program';
@@ -18,6 +18,7 @@ const App = () => {
   return (
     <Router>
       <div className="main-container">
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Welcome />} />

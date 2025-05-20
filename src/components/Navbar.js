@@ -49,19 +49,17 @@ const Navbar = () => {
     <>
       <header className={`nav-header ${isScrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'menu-open' : ''}`}>
         <div className="nav-content">
+         <Link to="/" onClick={closeMobileMenu}>
           <motion.div 
             className="logo"
             whileHover={{ scale: 1.05 }}
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-              closeMobileMenu();
-            }}
+
             style={{ cursor: 'pointer' }}
           >
             <img src={Logo} alt="Profortiz Logo" />
             <span>Profortiz</span>
           </motion.div>
-          
+          </Link>
           <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
             {mobileMenuOpen ? <FaTimes /> : <FaBars />}
           </div>
