@@ -377,7 +377,7 @@ const Welcome = () => {
         
         /* Hero Section Styles */
         .hero-section {
-          min-height: 100vh;
+          min-height: 8vh;
           display: flex;
           align-items: center;
           justify-content: center;
