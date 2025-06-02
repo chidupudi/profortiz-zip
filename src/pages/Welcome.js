@@ -1,4 +1,4 @@
-// src/pages/Welcome.js
+// src/pages/Welcome.js (Fixed - Remove button underlines)
 import React, { useEffect , useState} from 'react';
 import { FaRocket, FaChartLine, FaHandshake, FaMoneyBillAlt, FaStar, FaRegClock, FaArrowRight } from 'react-icons/fa';
 import { motion, useAnimation } from 'framer-motion';
@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Particles } from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import ConfirmationDialog from '../components/ConfirmationDialog'; 
+
 const Welcome = () => {
   const controls = useAnimation();
 const [showConfirmation, setShowConfirmation] = useState(false); 
@@ -143,7 +144,7 @@ const handleConfirmation = () => {
               Start Application
             </motion.button>
             
-            <Link to="/program">
+            <Link to="/program" className="secondary-button-link">
               <motion.button 
                 className="secondary-button"
                 whileHover={{ scale: 1.05 }}
@@ -327,7 +328,7 @@ const handleConfirmation = () => {
                 Apply Now
               </motion.button>
               
-              <Link to="/program">
+              <Link to="/program" className="secondary-button-link">
                 <motion.button 
                   className="secondary-button"
                   whileHover={{ scale: 1.05 }}
@@ -367,7 +368,6 @@ const handleConfirmation = () => {
         }
         
         .section-header {
-    
           text-align: center;
           margin-bottom: 3rem;
         }
@@ -469,6 +469,11 @@ const handleConfirmation = () => {
         
         .primary-button:hover {
           box-shadow: 0 15px 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        /* Fixed: Remove underline from secondary button links */
+        .secondary-button-link {
+          text-decoration: none;
         }
         
         .secondary-button {

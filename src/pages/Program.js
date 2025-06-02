@@ -1,6 +1,6 @@
 // src/pages/Program.js
 import React, { useState } from 'react';
-import { FaLaptopCode, FaGraduationCap, FaUsers, FaMoneyBillAlt, FaChartLine, FaCheck, FaAngleDown, FaAngleUp, FaStar, FaArrowRight,} from 'react-icons/fa';
+import { FaLaptopCode, FaGraduationCap, FaUsers, FaMoneyBillAlt, FaChartLine, FaCheck, FaAngleDown, FaAngleUp, FaSearch, FaStar, FaArrowRight,} from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ConfirmationDialog from '../components/ConfirmationDialog'; 
@@ -56,7 +56,7 @@ const timelineData = [
     { 
       month: "Month 2-5",
       title: "Job Application Strategies", 
-      
+      icon: <FaSearch />, 
       content: "Career Marketing and Application Preparation",
       details: [
         "Develop targeted job search strategy and application materials",
