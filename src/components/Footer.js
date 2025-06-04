@@ -51,7 +51,7 @@ const Footer = () => {
               <h3>Contact</h3>
               <p>
                 <FaEnvelope className="footer-icon" />
-                <a href="mailto:hr@profortiz.net">hr@profortiz.net</a>
+                <a href="mailto:hrm@profortiz.net">hrm@profortiz.net</a>
               </p>
               <p>
                 <FaWhatsapp className="footer-icon whatsapp" />
