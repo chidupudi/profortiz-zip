@@ -131,6 +131,9 @@ const handleConfirmation = () => {
             <FaRocket className="logo-icon" />
           </motion.div>
           <h1>Profortiz</h1>
+          <div className='caption'>
+          <h3>- - Career Consulting Excellence</h3>
+          </div>
           <h2>Accelerate Your Career in Data Engineering & Software Development</h2>
           <p>Transform into a Top-Tier Data/Software Professional in just 6 months</p>
           
@@ -394,6 +397,7 @@ const handleConfirmation = () => {
         /* Hero Section Styles */
         .hero-section {
           min-height: 8vh;
+          
           display: flex;
           align-items: center;
           justify-content: center;
@@ -402,7 +406,7 @@ const handleConfirmation = () => {
           position: relative;
          
         }
-        
+\
         .hero-content {
           max-width: 800px;
           z-index: 1;
@@ -441,7 +445,10 @@ const handleConfirmation = () => {
           color: #1e293b;
           line-height: 1.3;
         }
+        .caption{
+        margin-right:-450px;
         
+        }
         .hero-content p {
           font-size: 1.3rem;
           color: #64748b;
