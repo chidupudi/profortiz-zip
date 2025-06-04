@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profortiz - Software Development Clarification</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #333;
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 20mm;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #2c3e50;
+        }
+
+        .logo-container {
+            width: 80px;
+            height: 50px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8pt;
+            color: #666;
+            text-align: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .company-info {
+            flex-grow: 1;
+        }
+
+        .company-name {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .company-tagline {
+            font-size: 9pt;
+            color: #666;
+            font-style: italic;
+        }
+
+        .document-date {
+            text-align: right;
+            font-size: 9pt;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .document-title {
+            text-align: center;
+            font-size: 14pt;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+        }
+
+        .subject-line {
+            margin-bottom: 20px;
+            padding: 8px 12px;
+            background: #f1f3f4;
+            border-left: 4px solid #2c3e50;
+            font-size: 10pt;
+        }
+
+        .subject-line strong {
+            font-weight: bold;
+        }
+
+        .content-section {
+            margin-bottom: 15px;
+        }
+
+        .paragraph {
+            text-align: justify;
+            margin-bottom: 12px;
+            font-size: 11pt;
+            line-height: 1.5;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 20mm;
+            right: 20mm;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9pt;
+            color: #666;
+        }
+
+        .footer-left {
+            text-align: left;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .website {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signature-section {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #333;
+            width: 200px;
+            margin-top: 30px;
+        }
+
+        .signature-text {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Print optimization */
+        @media print {
+            body {
+                margin: 0;
+                padding: 20mm;
+                font-size: 11pt;
+            }
+            
+            .footer {
+                position: fixed;
+                bottom: 15mm;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+
+        /* Ensure single page */
+        .page-content {
+            max-height: calc(297mm - 40mm);
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-content">
+        <header class="header">
+           <div class="logo-container">
+    <img src="profortiz-logo.png" alt="Profortiz Logo" style="max-width: 100%; max-height: 100%;">
+</div>
+            <div class="company-info">
+                <div class="company-name">PROFORTIZ</div>
+                <div class="company-tagline">Career Services & Professional Development for US Students</div>
+            </div>
+        </header>
+
+        <div class="document-date">
+            Date: <script>document.write(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));</script>
+        </div>
+
+        <div class="document-title">
+            Response to Software Development and Procurement Inquiry
+        </div>
+
+        <div class="subject-line">
+            <strong>Subject:</strong> Clarification on Software Development and Service Delivery Model
+        </div>
+
+        <div class="content-section">
+            <div class="paragraph">
+                We appreciate your inquiry regarding our software development and procurement practices at Profortiz. To clarify our service delivery model, Profortiz operates as a specialized business consultancy focused exclusively on providing career guidance, job search assistance, and professional skills development services to US students and graduates. Our core offerings include resume optimization, interview preparation, career coaching, job placement assistance, and professional skills training workshops. We do not develop, distribute, or procure any software solutions as part of our service portfolio.
+            </div>
+
+            <div class="paragraph">
+                Our consulting methodology relies entirely on proven career development frameworks, personalized coaching sessions, industry networking facilitation, and educational workshops delivered through conventional consulting channels. All our services are human-centered and delivered through direct consultation rather than software platforms. We maintain our focus on providing high-quality, personalized career consulting services that help students successfully transition into the professional workforce. Should you require any additional clarification about our service delivery model or business operations, we would be happy to provide further documentation of our consulting-only approach.
+            </div>
+        </div>
+
+        
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <strong>Profortiz Business Consultancy</strong><br>
+            Career Services & Professional Development
+        </div>
+        <div class="footer-right">
+            <strong>Website:</strong> <a href="https://www.profortiz.com" class="website">www.Profortiz.com</a><br>
+            <strong>Focus:</strong> US Student Career Services
+        </div>
+    </footer>
+
+    <script>
+        // Print functionality
+        window.addEventListener('load', function() {
+            // Add print styles
+            const style = document.createElement('style');
+            style.textContent = `
+                @media print {
+                    @page { margin: 20mm; }
+                    body { margin: 0; padding: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
+        // Keyboard shortcut for printing
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Resolution - Profortiz</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 25mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 12pt;
+            line-height: 1.6;
+            color: #000;
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 25mm;
+        }
+
+        .letterhead {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #000;
+            position: relative;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 60px;
+            height: 40px;
+        }
+
+        .logo-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .company-name {
+            font-size: 18pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .company-details {
+            font-size: 10pt;
+            line-height: 1.4;
+        }
+
+        .registration-info {
+            font-size: 9pt;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .document-title {
+            text-align: center;
+            font-size: 14pt;
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 25px 0;
+            text-transform: uppercase;
+        }
+
+        .resolution-header {
+            text-align: center;
+            font-size: 11pt;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .resolution-content {
+            text-align: justify;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .resolved-clause {
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .certification-text {
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .signature-section {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .signature-block {
+            text-align: center;
+            width: 45%;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #000;
+            width: 200px;
+            margin: 30px auto 5px auto;
+        }
+
+        .designation-line {
+            border-bottom: 1px solid #000;
+            width: 200px;
+            margin: 20px auto 5px auto;
+        }
+
+        .seal-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .seal-container {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .seal-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .date-place {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .fill-blank {
+            border-bottom: 1px solid #000;
+            display: inline-block;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 25mm;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letterhead">
+        <div class="logo-container">
+            <img src="profortiz-logo.png" alt="Profortiz Logo" />
+        </div>
+        <div class="company-name">PROFORTIZ SOLUTIONS Pvt Ltd</div>
+        <div class="company-details">
+            Career Services & Professional Development for US Students<br>
+            Website: www.Profortiz.net<br>
+            Email: hrm@profortiz.net | Phone: 9000292266<br>
+            Address: 8-2-630/B/B/1, Mount Banjara Complex , Banjara Hills , Hyderabad. 
+        </div>
+        <div class="registration-info">
+           Registered PAN: AAOCP6906D
+        </div>
+    </div>
+
+    <div class="document-title">To Whomsoever It May Concern</div>
+
+    <div class="resolution-header">
+        <strong>CERTIFIED TRUE COPY OF THE EXTRACT FROM THE MINUTES OF THE MEETING OF<br>
+        THE BOARD OF DIRECTORS OF PROFORTIZ BUSINESS CONSULTANCY<br>
+        HELD AT <span class="fill-blank">Hyderabad</span> ON <span class="fill-blank">05/06/2025</span></strong>
+    </div>
+
+    <div class="resolution-content">
+        Considered and approved taking up an Online Payment Gateway Service from Razorpay Software Private Limited for business consultancy services.
+    </div>
+
+    <div class="resolved-clause">
+        <strong>"RESOLVED THAT"</strong> the consent of the Board be and is hereby accorded to take Payment Gateway services from "Razorpay Software Private Limited"
+    </div>
+
+    <div class="resolved-clause">
+        <strong>"RESOLVED FURTHER THAT"</strong> <span class="fill-blank">Muli Venkateswarlu,</span> <span class="fill-blank">Director</span> of the company, be and is hereby singly authorized to sign and execute on behalf of the company, all agreements, undertakings and any other documents that may be necessary for availing the said services from <strong>Razorpay Software Private Limited</strong> and to do all such acts that may be necessary to implement the foregoing resolution.
+    </div>
+
+    <div class="certification-text">
+        <strong>This is also to certify that the payment gateway would only be used for accepting payments for business consultancy services, career guidance, job search assistance, professional skills development services, resume optimization, interview preparation, career coaching, and job placement assistance. The payment gateway will NOT be used for software services, outsourcing services, or any other services beyond the scope of business consultancy.</strong>
+    </div>
+
+    <div class="certification-text">
+        In case of any additional services added in future, Razorpay must be consulted before using the payment gateway for such services. This is to also certify that Razorpay Software Private Limited holds the right to hold the funds for Profortiz Business Consultancy in case of any suspected fraudulent activity, and that Razorpay Software Private Limited holds the right to refund any payment in case of any dispute.
+    </div>
+
+    <div class="certification-text">
+        This is also to certify that the payment gateway services will be used only for accepting payments for <strong>business consultancy and career development services</strong>, on website <strong>www.Profortiz.net</strong>
+    </div>
+
+    <div class="certification-text">
+        We agree for "Razorpay Software Private Limited" to <strong>terminate the account</strong> with immediate effect in case of any policy violation and Razorpay will not be liable for any loss incurred.
+    </div>
+
+    <div class="date-place">
+        <div>Place: <span class="fill-blank">Hyderabad</span></div>
+        <div>Date: <span class="fill-blank">05/06/2025</span></div>
+    </div>
+
+    <div class="signature-section">
+        <div class="signature-block">
+           
+            <div>Name : Muli Venkateswarlu</div>
+            <div style="margin-top: 15px;">
+             
+                <div>Designation : Director</div>
+            </div>
+            <div style="margin-top: 15px;">
+               
+                <div>Signature :  Muli Venkateswarlu</div>
+            </div>
+        </div>
+
+        <div class="signature-block">
+       
+        </div>
+    </div>
+
+    <div class="seal-section">
+        <div class="seal-container">
+            <img src="profortiz-seal.png" alt="Company Seal" />
+        </div>
+        <div><strong>COMPANY SEAL</strong></div>
+    </div>
+
+    <script>
+        // Auto-fill today's date
+        window.addEventListener('load', function() {
+            const today = new Date().toLocaleDateString('en-IN', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            // You can uncomment these lines to auto-fill dates
+            // document.querySelectorAll('.fill-blank').forEach(blank => {
+            //     if (blank.parentNode.textContent.includes('Date:')) {
+            //         blank.textContent = today;
+            //     }
+            // });
+        });
+
+        // Print functionality
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>
