@@ -43,8 +43,8 @@ const About = () => {
                 <div className="section-badge">Our Mission</div>
                 <h2>Transforming Careers, One Student at a Time</h2>
                 <p>
-                  At Profortiz, we specialize in helping international students secure jobs in data analytics 
-                  and machine learning quickly, ethically, and efficiently. Our mission is to accelerate your 
+                  At Profortiz, we specialize in helping international students secure jobs in software and data engineering
+                        quickly, ethically, and efficiently. Our mission is to accelerate your 
                   journey toward a stable tech career in the U.S. by providing comprehensive, step-by-step 
                   training and guaranteed job placement programs designed exclusively for international students.
                 </p>
