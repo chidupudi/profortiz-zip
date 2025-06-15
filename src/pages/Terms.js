@@ -1,7 +1,9 @@
-// src/pages/Terms.js
+// src/pages/Terms.js (Updated with Currency Converter)
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import CurrencyConverter from '../components/CurrencyConverter';
+import '../components/CurrencyConverter.css';
 
 const Terms = () => {
   const [expandedSection, setExpandedSection] = useState(null);
@@ -23,24 +25,28 @@ const Terms = () => {
       title: "2. Eligibility Requirements",
       content: "To be eligible for the program, participants must:",
       list: [
-    "Be at least 21 years old",
-    "Have a basic understanding of programming concepts",
-    "Commit to the full duration of the program (6 months)",
-    "Complete all required coursework and projects",
-    "Actively participate in job search activities",
-    "Currently studying in the USA, recent graduate, or professional looking to enhance career",
-    "For international students: Navigate H-1B visa requirements and OPT/CPT opportunities"
-]
+        "Be at least 21 years old",
+        "Have a basic understanding of programming concepts",
+        "Commit to the full duration of the program (6 months)",
+        "Complete all required coursework and projects",
+        "Actively participate in job search activities",
+        "Currently studying in the USA, recent graduate, or professional looking to enhance career",
+        "For international students: Navigate H-1B visa requirements and OPT/CPT opportunities"
+      ]
     },
     {
       title: "3. Payment Terms",
-      content: "The total program fee is $6,000, payable as follows:",
+      content: "The total program fee is:",
       list: [
         "Initial Payment: $3,500 due upon enrollment",
-        "Deferred Payment: $2,500 due after placement",
+        "Deferred Payment: $2,500 due after placement", 
         "Success Fee: 8% of first year's annual CTC (only if placed through our program)"
       ],
-      additional: "Payment plans are available for the initial payment upon request and approval."
+      additional: "Payment plans are available for the initial payment upon request and approval.",
+      showCurrency: true,
+      totalAmount: 6000,
+      initialPayment: 3500,
+      deferredPayment: 2500
     },
     {
       title: "4. Money Back Guarantee",
@@ -105,7 +111,13 @@ const Terms = () => {
             <h3>Quick Summary</h3>
             <ul>
               <li>6-month intensive training program</li>
-              <li>$6,000 total fee with deferred payment options</li>
+              <li>
+                <CurrencyConverter 
+                  usdAmount={6000} 
+                  inline={true} 
+                  size="small"
+                /> total fee with deferred payment options
+              </li>
               <li>Money-back guarantee based on placement outcomes</li>
               <li>Career placement services included</li>
               <li>Personal mentorship and project-based learning</li>
@@ -158,10 +170,59 @@ const Terms = () => {
               <div className="accordion-content">
                 <p>{section.content}</p>
                 
+                {section.showCurrency && (
+                  <div className="payment-breakdown">
+                    <div className="payment-overview">
+                      <h4>Total Program Fee:</h4>
+                      <CurrencyConverter 
+                        usdAmount={section.totalAmount} 
+                        showBoth={true}
+                        className="terms-pricing"
+                        size="medium"
+                      />
+                    </div>
+                    
+                    <div className="payment-structure">
+                      <div className="payment-item">
+                        <span className="payment-label">Initial Payment:</span>
+                        <CurrencyConverter 
+                          usdAmount={section.initialPayment} 
+                          inline={true}
+                          size="small"
+                        />
+                      </div>
+                      <div className="payment-item">
+                        <span className="payment-label">After Placement:</span>
+                        <CurrencyConverter 
+                          usdAmount={section.deferredPayment} 
+                          inline={true}
+                          size="small"
+                        />
+                      </div>
+                      <div className="payment-item">
+                        <span className="payment-label">Success Fee:</span>
+                        <span className="percentage">8% of annual CTC</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
                 {section.list && (
                   <ul>
                     {section.list.map((item, i) => (
-                      <li key={i}>{item}</li>
+                      <li key={i}>
+                        {item.includes('$3,500') ? (
+                          <>
+                            Initial Payment: <CurrencyConverter usdAmount={3500} inline={true} size="small" /> due upon enrollment
+                          </>
+                        ) : item.includes('$2,500') ? (
+                          <>
+                            Deferred Payment: <CurrencyConverter usdAmount={2500} inline={true} size="small" /> due after placement
+                          </>
+                        ) : (
+                          item
+                        )}
+                      </li>
                     ))}
                   </ul>
                 )}
@@ -172,7 +233,9 @@ const Terms = () => {
                 
                 {section.table && index === 3 && (
                   <div className="refund-disclaimer">
-                    <p><strong>Note:</strong> Refunds apply only to the initial payment ($3,500). The deferred payment ($2,500 + 8% of CTC) is only due if you secure employment through our program.</p>
+                    <p><strong>Note:</strong> Refunds apply only to the initial payment{' '}
+                    <CurrencyConverter usdAmount={3500} inline={true} size="small" />. The deferred payment{' '}
+                    <CurrencyConverter usdAmount={2500} inline={true} size="small" /> + 8% of CTC is only due if you secure employment through our program.</p>
                   </div>
                 )}
               </div>
@@ -194,7 +257,12 @@ const Terms = () => {
                 <div className="point"></div>
                 <div className="point-content">
                   <h4>Enrollment</h4>
-                  <p>$3,500 initial payment</p>
+                  <CurrencyConverter 
+                    usdAmount={3500} 
+                    inline={true}
+                    size="small"
+                  />
+                  <p>initial payment</p>
                 </div>
               </div>
               <div className="timeline-point">
@@ -208,7 +276,12 @@ const Terms = () => {
                 <div className="point"></div>
                 <div className="point-content">
                   <h4>After Placement</h4>
-                  <p>$2,500 deferred payment</p>
+                  <CurrencyConverter 
+                    usdAmount={2500} 
+                    inline={true}
+                    size="small"
+                  />
+                  <p>deferred payment</p>
                 </div>
               </div>
               <div className="timeline-point">
@@ -336,6 +409,9 @@ const Terms = () => {
           position: relative;
           padding-left: 1.5rem;
           font-size: 0.95rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
         }
         
         .summary-card li:before {
@@ -430,7 +506,7 @@ const Terms = () => {
         }
         
         .accordion-item.expanded .accordion-content {
-          max-height: 500px;
+          max-height: 1000px;
           padding: 1rem 1.5rem 1.5rem;
         }
         
@@ -439,6 +515,54 @@ const Terms = () => {
           font-size: 0.95rem;
           line-height: 1.6;
           margin-bottom: 1rem;
+        }
+        
+        .payment-breakdown {
+          background: #f8fafc;
+          padding: 1.5rem;
+          border-radius: 0.5rem;
+          margin: 1rem 0;
+          border-left: 3px solid #6366f1;
+        }
+        
+        .payment-overview {
+          text-align: center;
+          margin-bottom: 1.5rem;
+        }
+        
+        .payment-overview h4 {
+          color: #1e293b;
+          margin-bottom: 1rem;
+          font-size: 1.1rem;
+        }
+        
+        .payment-structure {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1rem;
+        }
+        
+        .payment-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 1rem;
+          background: white;
+          border-radius: 0.5rem;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .payment-label {
+          font-weight: 600;
+          color: #64748b;
+          font-size: 0.9rem;
+        }
+        
+        .percentage {
+          font-weight: 700;
+          color: #1e293b;
+          font-size: 1.1rem;
         }
         
         .accordion-content ul {
@@ -452,6 +576,9 @@ const Terms = () => {
           position: relative;
           padding-left: 1.5rem;
           font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
         }
         
         .accordion-content li:before {
@@ -611,6 +738,10 @@ const Terms = () => {
             gap: 1.5rem;
           }
           
+          .payment-structure {
+            grid-template-columns: 1fr;
+          }
+          
           .point-content h4 {
             font-size: 0.95rem;
           }
@@ -643,6 +774,14 @@ const Terms = () => {
           }
           
           .program-phases {
+            grid-template-columns: 1fr;
+          }
+          
+          .payment-breakdown {
+            padding: 1rem;
+          }
+          
+          .payment-structure {
             grid-template-columns: 1fr;
           }
         }

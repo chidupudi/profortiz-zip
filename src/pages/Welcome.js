@@ -1,15 +1,18 @@
-// src/pages/Welcome.js (Fixed - Remove button underlines)
+// src/pages/Welcome.js (Updated with Currency Converter)
 import React, { useEffect , useState} from 'react';
 import { FaRocket, FaChartLine, FaHandshake, FaMoneyBillAlt, FaStar, FaRegClock, FaArrowRight } from 'react-icons/fa';
 import { motion, useAnimation } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Particles } from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import ConfirmationDialog from '../components/ConfirmationDialog'; 
+import ConfirmationDialog from '../components/ConfirmationDialog';
+import CurrencyConverter from '../components/CurrencyConverter';
+import '../components/CurrencyConverter.css';
 
 const Welcome = () => {
   const controls = useAnimation();
-const [showConfirmation, setShowConfirmation] = useState(false); 
+  const [showConfirmation, setShowConfirmation] = useState(false); 
+  
   useEffect(() => {
     controls.start({
       y: 0,
@@ -22,15 +25,15 @@ const [showConfirmation, setShowConfirmation] = useState(false);
     await loadSlim(main);
   };
 
-// Add these handler functions
-const handleApplyClick = () => {
-  setShowConfirmation(true);
-};
+  // Add these handler functions
+  const handleApplyClick = () => {
+    setShowConfirmation(true);
+  };
 
-const handleConfirmation = () => {
-  setShowConfirmation(false);
-  window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank');
-};
+  const handleConfirmation = () => {
+    setShowConfirmation(false);
+    window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank');
+  };
 
   return (
     <div className="welcome-page">
@@ -132,7 +135,7 @@ const handleConfirmation = () => {
           </motion.div>
           <h1>Profortiz</h1>
           <div className='caption'>
-          <h3>- - Career Consulting Excellence</h3>
+            <h3>- - Career Consulting Excellence</h3>
           </div>
           <h2>Accelerate Your Career in Data Engineering & Software Development</h2>
           <p>Transform into a Top-Tier Data/Software Professional in just 6 months</p>
@@ -142,7 +145,7 @@ const handleConfirmation = () => {
               className="primary-button"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-             onClick={handleApplyClick}
+              onClick={handleApplyClick}
             >
               Start Application
             </motion.button>
@@ -271,22 +274,40 @@ const handleConfirmation = () => {
         </div>
       </section>
 
-      {/* Pricing Quick View */}
+      {/* Pricing Quick View with Currency Converter */}
       <section className="pricing-section">
         <div className="container">
           <div className="pricing-card">
             <div className="pricing-header">
               <div className="badge">Most Popular</div>
               <h3>Career Accelerator Plan</h3>
-              <div className="price">$6000</div>
+              
+              {/* Main Price with Currency Converter */}
+              <div className="price-container">
+                <CurrencyConverter 
+                  usdAmount={6000} 
+                  showBoth={true}
+                  className="hero-price"
+                  size="large"
+                />
+              </div>
+              
               <div className="payment-terms">
                 <div className="term">
-                  <span className="amount">$3,500</span>
+                  <CurrencyConverter 
+                    usdAmount={3500} 
+                    inline={true}
+                    size="medium"
+                  />
                   <span className="label">Initial Payment</span>
                 </div>
                 <div className="term-divider">+</div>
                 <div className="term">
-                  <span className="amount">$2,500</span>
+                  <CurrencyConverter 
+                    usdAmount={2500} 
+                    inline={true}
+                    size="medium"
+                  />
                   <span className="label">After Placement</span>
                 </div>
                 <div className="term-divider">+</div>
@@ -326,7 +347,7 @@ const handleConfirmation = () => {
                 className="primary-button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-               onClick={handleApplyClick}
+                onClick={handleApplyClick}
               >
                 Apply Now
               </motion.button>
@@ -344,12 +365,14 @@ const handleConfirmation = () => {
           </motion.div>
         </div>
       </section>
-   {/* Confirmation Dialog */}
-   <ConfirmationDialog 
-     isOpen={showConfirmation}
-     onClose={() => setShowConfirmation(false)}
-     onConfirm={handleConfirmation}
-   />
+      
+      {/* Confirmation Dialog */}
+      <ConfirmationDialog 
+        isOpen={showConfirmation}
+        onClose={() => setShowConfirmation(false)}
+        onConfirm={handleConfirmation}
+      />
+      
       <style jsx>{`
         .welcome-page {
           overflow-x: hidden;
@@ -397,16 +420,14 @@ const handleConfirmation = () => {
         /* Hero Section Styles */
         .hero-section {
           min-height: 8vh;
-          
           display: flex;
           align-items: center;
           justify-content: center;
           text-align: center;
           padding:8rem 2rem 4rem 2rem;
           position: relative;
-         
         }
-\
+
         .hero-content {
           max-width: 800px;
           z-index: 1;
@@ -445,10 +466,11 @@ const handleConfirmation = () => {
           color: #1e293b;
           line-height: 1.3;
         }
-        .caption{
-        margin-right:-450px;
         
+        .caption{
+          margin-right:-450px;
         }
+        
         .hero-content p {
           font-size: 1.3rem;
           color: #64748b;
@@ -478,7 +500,6 @@ const handleConfirmation = () => {
           box-shadow: 0 15px 25px rgba(16, 185, 129, 0.4);
         }
         
-        /* Fixed: Remove underline from secondary button links */
         .secondary-button-link {
           text-decoration: none;
         }
@@ -663,11 +684,10 @@ const handleConfirmation = () => {
           margin-bottom: 2rem;
         }
         
-        .price {
-          font-size: 4rem;
-          font-weight: 800;
-          color: #1e293b;
-          margin-bottom: 2rem;
+        .price-container {
+          margin: 2rem 0;
+          display: flex;
+          justify-content: center;
         }
         
         .payment-terms {
@@ -683,6 +703,7 @@ const handleConfirmation = () => {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
+          align-items: center;
         }
         
         .amount {

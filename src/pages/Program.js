@@ -1,13 +1,17 @@
-// src/pages/Program.js
+// src/pages/Program.js (Updated with Currency Converter)
 import React, { useState } from 'react';
 import { FaLaptopCode, FaGraduationCap, FaUsers, FaMoneyBillAlt, FaChartLine, FaCheck, FaAngleDown, FaAngleUp, FaSearch, FaStar, FaArrowRight,} from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import ConfirmationDialog from '../components/ConfirmationDialog'; 
+import ConfirmationDialog from '../components/ConfirmationDialog';
+import CurrencyConverter from '../components/CurrencyConverter';
+import '../components/CurrencyConverter.css';
+
 const Program = () => {
   const [activeTab, setActiveTab] = useState('timeline');
   const [expandedFaq, setExpandedFaq] = useState(null);
-const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  
   const toggleFaq = (index) => {
     if (expandedFaq === index) {
       setExpandedFaq(null);
@@ -15,17 +19,18 @@ const [showConfirmation, setShowConfirmation] = useState(false);
       setExpandedFaq(index);
     }
   };
+  
   // Add these handler functions
-const handleApplyClick = () => {
-  setShowConfirmation(true);
-};
+  const handleApplyClick = () => {
+    setShowConfirmation(true);
+  };
 
-const handleConfirmation = () => {
-  setShowConfirmation(false);
-  window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank');
-};
+  const handleConfirmation = () => {
+    setShowConfirmation(false);
+    window.open('https://docs.google.com/forms/d/1KeNcLbmHviU-yKkuBKtvgFu-lbKdaPcaHKNWpDugZrM/edit', '_blank');
+  };
 
-const timelineData = [
+  const timelineData = [
     { 
       month: "Month 1",
       title: "Foundation Building", 
@@ -143,15 +148,12 @@ const timelineData = [
     ]
   };
 
-  // Pricing data
+  // Pricing data with currency converter
   const pricingData = {
     title: "Career Accelerator Plan",
-    price: "$6000",
-    terms: [
-      { label: "Initial Payment", amount: "$3,500" },
-      { label: "After Placement", amount: "$2,500" },
-      { label: "Annual CTC", amount: "8%" }
-    ],
+    totalPrice: 6000,
+    initialPayment: 3500,
+    deferredPayment: 2500,
     features: [
       "Automated Job Applications",
       "Resume & LinkedIn Optimization",
@@ -164,10 +166,10 @@ const timelineData = [
 
   // FAQ data
   const faqData = [
-   {
-  question: "What are the eligibility requirements for the program?",
-  answer: "To be eligible, you must be at least 21 years old, have a basic understanding of programming concepts, and commit to the full 6-month duration of the program including all coursework and job search activities. We primarily serve students currently studying in the USA, recent graduates, and professionals looking to enhance their careers. Our program includes specialized guidance for international students navigating H-1B visa requirements and OPT/CPT opportunities. We provide tailored support for the unique challenges faced by international candidates in the US job market."
-},
+    {
+      question: "What are the eligibility requirements for the program?",
+      answer: "To be eligible, you must be at least 21 years old, have a basic understanding of programming concepts, and commit to the full 6-month duration of the program including all coursework and job search activities. We primarily serve students currently studying in the USA, recent graduates, and professionals looking to enhance their careers. Our program includes specialized guidance for international students navigating H-1B visa requirements and OPT/CPT opportunities. We provide tailored support for the unique challenges faced by international candidates in the US job market."
+    },
     {
       question: "How does the payment structure work?",
       answer: "The total program fee is $6,000, with $3,500 due upon enrollment, $2,500 due after job placement, and an additional 8% of your first year's annual compensation (only applicable if placed through our program)."
@@ -346,7 +348,7 @@ const timelineData = [
             </motion.section>
           )}
 
-          {/* Pricing Tab */}
+          {/* Pricing Tab with Currency Converter */}
           {activeTab === 'pricing' && (
             <motion.section 
               className="pricing-section"
@@ -372,15 +374,38 @@ const timelineData = [
                   >
                     <div className="badge">Most Popular</div>
                     <h3>{pricingData.title}</h3>
-                    <div className="price">{pricingData.price}</div>
+                    
+                    {/* Total Price with Currency Converter */}
+                    <div className="price-display">
+                      <CurrencyConverter 
+                        usdAmount={pricingData.totalPrice} 
+                        showBoth={true}
+                        className="pricing-card-price"
+                        size="xlarge"
+                      />
+                    </div>
                     
                     <div className="payment-structure">
-                      {pricingData.terms.map((term, index) => (
-                        <div className="payment-term" key={index}>
-                          <div className="term-amount">{term.amount}</div>
-                          <div className="term-label">{term.label}</div>
-                        </div>
-                      ))}
+                      <div className="payment-term">
+                        <CurrencyConverter 
+                          usdAmount={pricingData.initialPayment} 
+                          inline={true}
+                          size="large"
+                        />
+                        <div className="term-label">Initial Payment</div>
+                      </div>
+                      <div className="payment-term">
+                        <CurrencyConverter 
+                          usdAmount={pricingData.deferredPayment} 
+                          inline={true}
+                          size="large"
+                        />
+                        <div className="term-label">After Placement</div>
+                      </div>
+                      <div className="payment-term">
+                        <div className="term-amount">8%</div>
+                        <div className="term-label">Annual CTC</div>
+                      </div>
                     </div>
                     
                     <div className="price-divider"></div>
@@ -465,13 +490,16 @@ const timelineData = [
                         ))}
                       </div>
                       <div className="refund-note">
-                        <strong>Note:</strong> Refunds apply only to the initial payment ($3,500). The deferred payment is only due if you secure employment through our program.
+                        <strong>Note:</strong> Refunds apply only to the initial payment{' '}
+                        <CurrencyConverter 
+                          usdAmount={3500} 
+                          inline={true}
+                          size="small"
+                        />. The deferred payment is only due if you secure employment through our program.
                       </div>
                     </motion.div>
                   </div>
                 </div>
-
-                
               </div>
             </motion.section>
           )}
@@ -549,12 +577,12 @@ const timelineData = [
           </motion.div>
         </div>
       </section>
-         <ConfirmationDialog 
-     isOpen={showConfirmation}
-     onClose={() => setShowConfirmation(false)}
-     onConfirm={handleConfirmation}
-   />
-
+      
+      <ConfirmationDialog 
+        isOpen={showConfirmation}
+        onClose={() => setShowConfirmation(false)}
+        onConfirm={handleConfirmation}
+      />
 
       <style jsx>{`
         .program-page {
@@ -912,22 +940,23 @@ const timelineData = [
           margin-bottom: 2rem;
         }
         
-        .price {
-          font-size: 5rem;
-          font-weight: 800;
-          color: #6366f1;
+        .price-display {
           text-align: center;
-          margin-bottom: 2rem;
+          margin: 2rem 0;
         }
         
         .payment-structure {
           display: flex;
           justify-content: space-around;
           margin-bottom: 2.5rem;
+          flex-wrap: wrap;
+          gap: 1rem;
         }
         
         .payment-term {
           text-align: center;
+          flex: 1;
+          min-width: 150px;
         }
         
         .term-amount {
@@ -1070,67 +1099,6 @@ const timelineData = [
           margin-top: 1rem;
         }
         
-        .testimonials {
-          max-width: 800px;
-          margin: 0 auto;
-        }
-        
-        .testimonials h3 {
-          font-size: 1.8rem;
-          color: #1e293b;
-          text-align: center;
-          margin-bottom: 2rem;
-        }
-        
-        .testimonial-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-        }
-        
-        .testimonial {
-          background: #f8fafc;
-          padding: 2rem;
-          border-radius: 1rem;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-          position: relative;
-        }
-        
-        .testimonial:before {
-          content: '"';
-          position: absolute;
-          top: 0;
-          left: 1.5rem;
-          font-size: 5rem;
-          color: rgba(99, 102, 241, 0.1);
-          line-height: 1;
-        }
-        
-        .quote {
-          color: #4b5563;
-          font-style: italic;
-          line-height: 1.6;
-          margin-bottom: 1.5rem;
-        }
-        
-        .author {
-          text-align: right;
-        }
-        
-        .stars {
-          color: #f59e0b;
-          display: flex;
-          justify-content: flex-end;
-          gap: 0.2rem;
-          margin-bottom: 0.5rem;
-          font-size: 0.9rem;
-        }
-        
-        .name {
-          font-weight: 600;
-          color: #1e293b;
-        }
-        
         /* FAQ Section Styles */
         .faq-section {
           padding: 6rem 0;
@@ -1257,6 +1225,11 @@ const timelineData = [
             padding: 0.5rem 1rem;
             margin-bottom: 1rem;
           }
+          
+          .payment-structure {
+            flex-direction: column;
+            gap: 1.5rem;
+          }
         }
         
         @media (max-width: 768px) {
@@ -1342,21 +1315,12 @@ const timelineData = [
             padding: 0 1.5rem;
           }
           
-          .payment-structure {
-            flex-direction: column;
-            gap: 1.5rem;
+          .stat-card, .feature-card {
+            padding: 1.5rem;
           }
           
-          .price {
-            font-size: 3.5rem;
-          }
-          
-          .testimonial-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .faq-question h3 {
-            font-size: 1rem;
+          .stats-section, .features-section, .pricing-section, .final-cta {
+            padding: 4rem 1.5rem;
           }
         }
       `}</style>

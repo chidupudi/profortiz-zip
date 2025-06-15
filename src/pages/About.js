@@ -66,7 +66,7 @@ const About = () => {
                     <div className="stat-label">Month Program</div>
                   </div>
                   <div className="stat-card">
-                    <div className="stat-number">10+</div>
+                    <div className="stat-number">5</div>
                     <div className="stat-label">Guaranteed Interviews</div>
                   </div>
                   <div className="stat-card">
