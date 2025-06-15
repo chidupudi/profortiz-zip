@@ -58,7 +58,7 @@ const About = () => {
               <div className="mission-visual">
                 <div className="stats-grid">
                   <div className="stat-card">
-                    <div className="stat-number">100+</div>
+                    <div className="stat-number">150+</div>
                     <div className="stat-label">Weekly Job Applications</div>
                   </div>
                   <div className="stat-card">
@@ -70,7 +70,7 @@ const About = () => {
                     <div className="stat-label">Guaranteed Interviews</div>
                   </div>
                   <div className="stat-card">
-                    <div className="stat-number">150+</div>
+                    <div className="stat-number">100+</div>
                     <div className="stat-label">Hours Training</div>
                   </div>
                 </div>
