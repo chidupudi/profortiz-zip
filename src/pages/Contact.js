@@ -120,7 +120,7 @@ setTimeout(() => {
                 <FaEnvelope className="info-icon" />
                 <div className="info-content">
                   <h3>Email Us</h3>
-                  <p><a href="mailto:hr@profortiz.net">hr@profortiz.net</a></p>
+                  <p><a href="mailto:hrm@profortiz.net">hr@profortiz.net</a></p>
                 </div>
               </div>
               
