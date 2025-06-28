@@ -144,7 +144,7 @@ setTimeout(() => {
                 <FaMapMarkerAlt className="info-icon" />
                 <div className="info-content">
                   <h3>Our Location</h3>
-                  <p>Hyderabad, Telangana, India</p>
+                  <p> 8-2-630/B/B/1, Mount Banjara Complex , Banjara Hills , 500034 , Hyderabad.</p>
                 </div>
               </div>
             </div>
