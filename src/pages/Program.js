@@ -135,10 +135,10 @@ const Program = () => {
   const guaranteeData = {
     refundPolicy: [
       { condition: "Get a job through our program", refund: "No refund (full payment due)" },
-      { condition: "5+ interviews but no job offer", refund: "50% refund of initial payment" },
-      { condition: "4 interviews but no job offer", refund: "55% refund of initial payment" },
-      { condition: "3 interviews but no job offer", refund: "60% refund of initial payment" },
-      { condition: "0 interviews secured", refund: "70% refund of initial payment" }
+      { condition: "5+ interviews but no job offer", refund: "30% refund of initial payment" },
+      { condition: "4 interviews but no job offer", refund: "35% refund of initial payment" },
+      { condition: "3 interviews but no job offer", refund: "40% refund of initial payment" },
+      { condition: "0 interviews secured", refund: "50% refund of initial payment" }
     ],
     eligibility: [
       "Complete all program requirements including coursework and projects",
