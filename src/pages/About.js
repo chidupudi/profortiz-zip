@@ -49,7 +49,7 @@ const About = () => {
                   training and guaranteed job placement programs designed exclusively for graduated professionals.
                 </p>
                 <p>
-                  We handle 100+ tailored job applications weekly and provide expert-led advanced data analytics 
+                  We handle 150+ tailored job applications weekly and provide expert-led advanced data analytics 
                   and machine learning training combined with personalized career coaching. Our Career Accelerator Program 
                   is a 4-month comprehensive journey that includes hands-on training on real-time Fortune 500 
                   style projects, industry-recognized certifications, and guaranteed interview opportunities.
