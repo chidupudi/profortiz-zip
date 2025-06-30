@@ -41,7 +41,7 @@ const About = () => {
             <div className="mission-grid">
               <div className="mission-content">
                 <div className="section-badge">Our Mission</div>
-                <h2>Transforming Careers, One Graduated Professional at a Time</h2>
+                <h2>Empowering Graduates Toward Tech Careers</h2>
                 <p>
                   At Profortiz, we specialize in helping graduated professionals secure jobs in software and data engineering
                         quickly, ethically, and efficiently. Our mission is to accelerate your 
