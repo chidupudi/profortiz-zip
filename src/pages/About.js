@@ -51,8 +51,8 @@ const About = () => {
                 <p>
                   We handle 150+ tailored job applications weekly and provide expert-led advanced data analytics 
                   and machine learning training combined with personalized career coaching. Our Career Accelerator Program 
-                  is a 4-month comprehensive journey that includes hands-on training on real-time Fortune 500 
-                  style projects, industry-recognized certifications, and guaranteed interview opportunities.
+                  is a 4-month comprehensive journey that includes hands-on training, 
+                   industry-recognized certifications, and guaranteed interview opportunities.
                 </p>
               </div>
               <div className="mission-visual">
