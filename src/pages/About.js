@@ -22,7 +22,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <h1>About Profortiz</h1>
-            <p>Accelerating international students' journey to successful tech careers in the US through our comprehensive Career Accelerator Program</p>
+            <p>Accelerating graduated professionals' journey to successful tech careers in the US through our comprehensive Career Accelerator Program</p>
           </motion.div>
         </div>
       </div>
@@ -41,12 +41,12 @@ const About = () => {
             <div className="mission-grid">
               <div className="mission-content">
                 <div className="section-badge">Our Mission</div>
-                <h2>Transforming Careers, One Student at a Time</h2>
+                <h2>Transforming Careers, One Graduated Professional at a Time</h2>
                 <p>
-                  At Profortiz, we specialize in helping international students secure jobs in software and data engineering
+                  At Profortiz, we specialize in helping graduated professionals secure jobs in software and data engineering
                         quickly, ethically, and efficiently. Our mission is to accelerate your 
                   journey toward a stable tech career in the U.S. by providing comprehensive, step-by-step 
-                  training and guaranteed job placement programs designed exclusively for international students.
+                  training and guaranteed job placement programs designed exclusively for graduated professionals.
                 </p>
                 <p>
                   We handle 100+ tailored job applications weekly and provide expert-led advanced data analytics 
