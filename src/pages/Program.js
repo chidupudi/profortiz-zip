@@ -32,7 +32,7 @@ const Program = () => {
 
   const timelineData = [
     { 
-      month: "Month 1",
+      month: "Day 1-15",
       title: "Foundation Building", 
       icon: <FaLaptopCode />, 
       content: "Career Preparation and Core Fundamentals",
@@ -45,7 +45,7 @@ const Program = () => {
       ]
     },
     { 
-      month: "Month 2-3", 
+      month: "Day 1-15", 
       title: "Specialized Skills", 
       icon: <FaGraduationCap />, 
       content: "Advanced Technical Training and Project Implementation",
@@ -59,7 +59,7 @@ const Program = () => {
       ]
     },
     { 
-      month: "Month 2-5",
+      month: "Day 15-120",
       title: "Job Application Strategies", 
       icon: <FaSearch />, 
       content: "Career Marketing and Application Preparation",
@@ -73,7 +73,7 @@ const Program = () => {
       ]
     },
     { 
-      month: "Month 3-6", 
+      month: "Day 15-120", 
       title: "Professional Launch", 
       icon: <FaUsers />, 
       content: "Portfolio Completion and Career Transition",
@@ -260,6 +260,26 @@ const Program = () => {
                 </div>
 
                 <div className="timeline-container">
+                  {/* Timeline Calendar Bar */}
+                  <div className="timeline-calendar-bar" style={{ display: 'flex', marginBottom: '2rem', alignItems: 'center' }}>
+                    <div style={{ flex: 1, textAlign: 'center', background: '#e0e7ef', padding: '0.5rem', borderRadius: '8px 0 0 8px', borderRight: '2px solid #64748b' }}>
+                      <strong>Day 1-15</strong>
+                      <div style={{ fontSize: '0.9rem' }}>Foundation</div>
+                    </div>
+                    <div style={{ flex: 2, textAlign: 'center', background: '#c7d2fe', padding: '0.5rem', borderRight: '2px solid #64748b' }}>
+                      <strong>Day 1-15</strong>
+                      <div style={{ fontSize: '0.9rem' }}>Specialized Skills</div>
+                    </div>
+                    <div style={{ flex: 7, textAlign: 'center', background: '#a5b4fc', padding: '0.5rem', borderRight: '2px solid #64748b' }}>
+                      <strong>Day 15-120</strong>
+                      <div style={{ fontSize: '0.9rem' }}>Job Application Strategies</div>
+                    </div>
+                    <div style={{ flex: 7, textAlign: 'center', background: '#818cf8', padding: '0.5rem', borderRadius: '0 8px 8px 0' }}>
+                      <strong>Day 15-120</strong>
+                      <div style={{ fontSize: '0.9rem' }}>Professional Launch</div>
+                    </div>
+                  </div>
+
                   {timelineData.map((item, index) => (
                     <motion.div
                       className="timeline-item"
