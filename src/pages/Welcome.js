@@ -340,7 +340,7 @@ const Welcome = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2>Ready to Transform Your Career?</h2>
+            <h2>Ready to Transform Your Carer?</h2>
             <p>Take the first step towards becoming a top-tier tech professional</p>
             <div className="cta-buttons">
               <motion.button 
